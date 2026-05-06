@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT PORTAL | Софты</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="grid-bg"></div>
+
+    <div class="content-container">
+        <div class="content-header">
+            <h1>💻 Софты и утилиты</h1>
+            <a href="dashboard.html" class="back-btn">← Назад</a>
+        </div>
+
+        <div class="software-grid" id="software-grid"></div>
+
+        <div class="private-block" style="margin-top:30px;">
+            <p>🔒 Больше софтов в закрытом привате:</p>
+            <a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank">https://t.me/+yAisTVbDXLI1NWM6</a>
+        </div>
+    </div>
+
+    <script>
+        const software = [
+            { name: "Sherlock", desc: "Поиск аккаунтов по никнейму на 400+ сайтах", github: "https://github.com/sherlock-project/sherlock", preview: ["red","","green","","red",""] },
+            { name: "Maigret", desc: "Углублённый поиск по нику с вытягиванием аватаров, имён, локаций", github: "https://github.com/soxoj/maigret", preview: ["","red","","","green",""] },
+            { name: "SocialBox", desc: "Брутфорс соцсетей через Termux", github: "https://github.com/samsesh/SocialBox-Termux", preview: ["green","","red","","","red"] },
+            { name: "Tailspin", desc: "Интерактивный просмотрщик и фильтрация логов", github: "https://github.com/bensadeh/tailspin", preview: ["","green","","red","",""] },
+            { name: "GHunt", desc: "Вытягивание инфы из Google-аккаунта по email или ID", github: "https://github.com/mxrch/GHunt", preview: ["red","","","green","","red"] },
+            { name: "Holehe", desc: "Проверка email на регистрацию в 120+ сервисах", github: "https://github.com/megadose/holehe", preview: ["","red","green","","",""] },
+            { name: "theHarvester", desc: "Сбор email, субдоменов, IP по домену", github: "https://github.com/laramies/theHarvester", preview: ["green","","","red","green",""] },
+            { name: "SpiderFoot", desc: "Автоматический сбор инфы из 200+ источников", github: "https://github.com/smicallef/spiderfoot", preview: ["","green","red","","","green"] },
+            { name: "Recon-ng", desc: "Фреймворк для веб-разведки", github: "https://github.com/lanmaster53/recon-ng", preview: ["red","","green","","red",""] },
+            { name: "Shodan CLI", desc: "Поисковик по всему интернету (камеры, роутеры, сервера)", github: "https://github.com/achillean/shodan-python", preview: ["","red","","green","","red"] },
+            { name: "Censys CLI", desc: "Аналог Shodan с упором на SSL-сертификаты", github: "https://github.com/censys/censys-python", preview: ["green","","","red","","green"] },
+            { name: "ExifTool", desc: "Чистка и анализ метаданных из фото и документов", github: "https://github.com/exiftool/exiftool", preview: ["","green","","","red",""] },
+            { name: "MAT2", desc: "Удаление метаданных из файлов", github: "https://github.com/jvoisin/mat2", preview: ["red","","green","","",""] },
+            { name: "OnionShare", desc: "Безопасная передача файлов через Tor", github: "https://github.com/onionshare/onionshare", preview: ["","red","","green","","red"] },
+            { name: "VeraCrypt", desc: "Шифрование дисков со скрытыми разделами", github: "https://github.com/veracrypt/VeraCrypt", preview: ["green","red","","","green",""] },
+            { name: "dnscrypt-proxy", desc: "Шифрование DNS-запросов", github: "https://github.com/DNSCrypt/dnscrypt-proxy", preview: ["","","red","green","",""] },
+            { name: "macchanger", desc: "Смена MAC-адреса сетевой карты", github: "https://github.com/alobbs/macchanger", preview: ["red","green","","","","red"] },
+            { name: "Intel Owl", desc: "Автоматизация threat intelligence", github: "https://github.com/intelowlproject/IntelOwl", preview: ["","red","","green","red",""] },
+            { name: "Photon", desc: "Краулер для извлечения данных с сайтов", github: "https://github.com/s0md3v/Photon", preview: ["green","","red","","","green"] },
+            { name: "Subfinder", desc: "Поиск субдоменов через пассивные источники", github: "https://github.com/projectdiscovery/subfinder", preview: ["","green","","red","",""] },
+            { name: "Amass", desc: "Глубокий поиск субдоменов и анализ DNS", github: "https://github.com/owasp-amass/amass", preview: ["red","","green","","red","green"] },
+            { name: "Metagoofil", desc: "Извлечение метаданных из публичных документов", github: "https://github.com/laramies/metagoofil", preview: ["","red","","","green",""] },
+            { name: "FOCA", desc: "Поиск и анализ метаданных в документах", github: "https://github.com/ElevenPaths/FOCA", preview: ["green","","","red","","green"] },
+            { name: "TinEye CLI", desc: "Обратный поиск по изображениям", github: "https://github.com/TinEye/tineye_client", preview: ["","green","red","","",""] },
+            { name: "LittleBrother", desc: "Мониторинг цифрового следа", github: "https://github.com/lulz3xploit/LittleBrother", preview: ["red","","","green","","red"] }
+        ];
+
+        const grid = document.getElementById('software-grid');
+        software.forEach(s => {
+            const card = document.createElement('div');
+            card.className = 'software-card';
+            
+            let previewHTML = '<div class="software-preview"><div class="terminal-lines">';
+            s.preview.forEach(cls => {
+                previewHTML += `<div class="terminal-line ${cls}"></div>`;
+            });
+            previewHTML += '</div></div>';
+            
+            card.innerHTML = previewHTML + `
+                <div class="software-info">
+                    <h3>${s.name}</h3>
+                    <p class="desc">${s.desc}</p>
+                    <a href="${s.github}" class="github-link" target="_blank">GitHub →</a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

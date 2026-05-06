@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT PORTAL | Панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="grid-bg"></div>
+
+    <div class="content-container">
+        <div class="content-header">
+            <h1>OSINT<span class="accent">PORTAL</span></h1>
+            <button id="logout-btn" class="logout-btn">Выйти</button>
+        </div>
+
+        <p class="dash-welcome">Добро пожаловать, <span id="user-name"></span></p>
+
+        <div class="nav-cards">
+            <a href="anonymity.html" class="nav-card">
+                <div class="card-icon">🛡️</div>
+                <div class="card-number">01</div>
+                <h3>Анонимность</h3>
+                <p>Полный гайд по анонимности в сети</p>
+            </a>
+            <a href="osint.html" class="nav-card">
+                <div class="card-icon">🔍</div>
+                <div class="card-number">02</div>
+                <h3>OSINT</h3>
+                <p>Теория, методология, 47 видов</p>
+            </a>
+            <a href="software.html" class="nav-card">
+                <div class="card-icon">💻</div>
+                <div class="card-number">03</div>
+                <h3>Софты</h3>
+                <p>25 инструментов с описанием</p>
+            </a>
+            <a href="tips.html" class="nav-card">
+                <div class="card-icon">💬</div>
+                <div class="card-number">04</div>
+                <h3>Советы Арбитра</h3>
+                <p>20 правил цифровой безопасности</p>
+            </a>
+        </div>
+
+        <div class="private-block">
+            <p>🔒 Закрытый приват автора:</p>
+            <a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank">https://t.me/+yAisTVbDXLI1NWM6</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

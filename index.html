@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT PORTAL | Вход</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="grid-bg"></div>
+
+    <div class="hacker-icon" id="hacker-icon">
+        <svg viewBox="0 0 100 100" width="55" height="55">
+            <path d="M20 75 Q20 20 50 15 Q80 20 80 75" fill="none" stroke="#e53935" stroke-width="1.8"/>
+            <path d="M25 75 Q25 27 50 22 Q75 27 75 75" fill="none" stroke="#e53935" stroke-width="0.6" opacity="0.4"/>
+            <line x1="33" y1="43" x2="43" y2="43" stroke="#e53935" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="57" y1="43" x2="67" y2="43" stroke="#e53935" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="42" y1="58" x2="58" y2="58" stroke="#e53935" stroke-width="1.2"/>
+            <line x1="44" y1="62" x2="56" y2="62" stroke="#e53935" stroke-width="1.2"/>
+            <line x1="46" y1="66" x2="54" y2="66" stroke="#e53935" stroke-width="1.2"/>
+            <path d="M30 50 Q30 70 50 75 Q70 70 70 50" fill="none" stroke="#e53935" stroke-width="1.2" opacity="0.5"/>
+        </svg>
+        <span class="hacker-greeting" id="hacker-greeting">Привет от Арбитра =)</span>
+    </div>
+
+    <div class="auth-container">
+        <div class="brand-panel">
+            <div class="brand-content">
+                <div class="brand-header">
+                    <h1 class="brand-name">OSINT<span class="accent">PORTAL</span></h1>
+                    <div class="status-dot"></div>
+                </div>
+                <p class="brand-tagline">Искусство цифрового поиска</p>
+                <div class="brand-features">
+                    <div class="feature-item">
+                        <div class="feature-icon-wrap"><span class="feature-icon">01</span></div>
+                        <span>Советы по OSINT и анонимности</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrap"><span class="feature-icon">02</span></div>
+                        <span>Софты и утилиты с описанием</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-wrap"><span class="feature-icon">03</span></div>
+                        <span>Обучение по установке софтов</span>
+                    </div>
+                </div>
+                <div class="author-block">
+                    <p class="author-name">Автор: <span class="accent">@arbitrxd</span></p>
+                    <a href="https://t.me/+yAisTVbDXLI1NWM6" class="private-link" target="_blank">
+                        <span class="lock-icon">🔒</span> Закрытый приват со всеми софтами
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="auth-panel">
+            <div class="auth-form">
+                <h2>Вход</h2>
+                <p class="auth-subtitle">Нет аккаунта? <a href="#" id="switch-to-register">Создать</a></p>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Пароль" autocomplete="off">
+                </div>
+                <button id="login-btn">Войти</button>
+                <p class="auth-error" id="auth-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
