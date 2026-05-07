@@ -3,76 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSINT PORTAL | Софты</title>
+    <title>Arbitr OSINT | Софты</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="particles"></canvas>
-    <div class="grid-bg"></div>
-
-    <div class="content-container">
-        <div class="content-header">
-            <h1>💻 Софты и утилиты</h1>
-            <a href="dashboard.html" class="back-btn">← Назад</a>
-        </div>
-
-        <div class="software-grid" id="software-grid"></div>
-
-        <div class="private-block" style="margin-top:30px;">
-            <p>🔒 Больше софтов в закрытом привате:</p>
-            <a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank">https://t.me/+yAisTVbDXLI1NWM6</a>
+    <canvas id="matrix-bg"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="content-page">
+        <a href="dashboard.html" class="back-link">← BACK TO DASHBOARD</a>
+        <div class="folder-panel">
+            <div class="folder-header">// SOFTWARE.dat</div>
+            <h2>СОФТЫ И УТИЛИТЫ</h2>
+            <h3>Maigret</h3><p>Это ракета, а не тупой школьный шерлок. Ищет больше трёх тысяч сайтов, не просит API ключей, выдаёт полноценное досье. Ссылки, аватары, иногда реальное имя и город. Сохраняет в HTML или PDF. <a href="https://github.com/soxoj/maigret" target="_blank">GitHub</a></p>
+            <p><code>pip3 install maigret</code></p>
+            <p><code>maigret username</code></p>
+            <p><code>maigret username --html</code></p>
+            <h3>Sherlock</h3><p>Поиск по 400+ сайтам. <a href="https://github.com/sherlock-project/sherlock" target="_blank">GitHub</a></p>
+            <h3>SocialBox</h3><p>Брутфорс соцсетей через Termux. <a href="https://github.com/samsesh/SocialBox-Termux" target="_blank">GitHub</a></p>
+            <h3>Holehe</h3><p>Проверка email на 120+ сервисах. <a href="https://github.com/megadose/holehe" target="_blank">GitHub</a></p>
+            <h3>GHunt</h3><p>Инфа из Google-аккаунта. <a href="https://github.com/mxrch/GHunt" target="_blank">GitHub</a></p>
+            <h3>theHarvester</h3><p>Сбор email, субдоменов, IP. <a href="https://github.com/laramies/theHarvester" target="_blank">GitHub</a></p>
+            <h3>SpiderFoot</h3><p>Автоматический сбор из 200+ источников. <a href="https://github.com/smicallef/spiderfoot" target="_blank">GitHub</a></p>
+            <h3>Recon-ng</h3><p>Фреймворк для веб-разведки. <a href="https://github.com/lanmaster53/recon-ng" target="_blank">GitHub</a></p>
+            <h3>Shodan CLI</h3><p>Поисковик устройств в интернете. <a href="https://github.com/achillean/shodan-python" target="_blank">GitHub</a></p>
+            <h3>Censys CLI</h3><p>SSL-сертификаты и история. <a href="https://github.com/censys/censys-python" target="_blank">GitHub</a></p>
+            <h3>ExifTool</h3><p>Чистка метаданных. <a href="https://github.com/exiftool/exiftool" target="_blank">GitHub</a></p>
+            <h3>MAT2</h3><p>Удаление метаданных. <a href="https://github.com/jvoisin/mat2" target="_blank">GitHub</a></p>
+            <h3>OnionShare</h3><p>Передача файлов через Tor. <a href="https://github.com/onionshare/onionshare" target="_blank">GitHub</a></p>
+            <h3>VeraCrypt</h3><p>Шифрование дисков. <a href="https://github.com/veracrypt/VeraCrypt" target="_blank">GitHub</a></p>
+            <h3>dnscrypt-proxy</h3><p>Шифрование DNS. <a href="https://github.com/DNSCrypt/dnscrypt-proxy" target="_blank">GitHub</a></p>
+            <h3>macchanger</h3><p>Смена MAC-адреса. <a href="https://github.com/alobbs/macchanger" target="_blank">GitHub</a></p>
+            <h3>Intel Owl</h3><p>Автоматизация threat intelligence. <a href="https://github.com/intelowlproject/IntelOwl" target="_blank">GitHub</a></p>
+            <h3>Photon</h3><p>Краулер для извлечения данных. <a href="https://github.com/s0md3v/Photon" target="_blank">GitHub</a></p>
+            <h3>Subfinder</h3><p>Поиск субдоменов. <a href="https://github.com/projectdiscovery/subfinder" target="_blank">GitHub</a></p>
+            <h3>Amass</h3><p>Глубокий анализ DNS. <a href="https://github.com/owasp-amass/amass" target="_blank">GitHub</a></p>
+            <h3>Metagoofil</h3><p>Метаданные из публичных документов. <a href="https://github.com/laramies/metagoofil" target="_blank">GitHub</a></p>
+            <h3>FOCA</h3><p>Анализ метаданных в документах. <a href="https://github.com/ElevenPaths/FOCA" target="_blank">GitHub</a></p>
+            <h3>TinEye CLI</h3><p>Обратный поиск по изображениям. <a href="https://github.com/TinEye/tineye_client" target="_blank">GitHub</a></p>
+            <h3>LittleBrother</h3><p>Мониторинг цифрового следа. <a href="https://github.com/lulz3xploit/LittleBrother" target="_blank">GitHub</a></p>
+            <h3>Tailspin</h3><p>Просмотрщик логов. <a href="https://github.com/bensadeh/tailspin" target="_blank">GitHub</a></p>
         </div>
     </div>
-
-    <script>
-        const software = [
-            { name: "Sherlock", desc: "Поиск аккаунтов по никнейму на 400+ сайтах", github: "https://github.com/sherlock-project/sherlock", preview: ["red","","green","","red",""] },
-            { name: "Maigret", desc: "Углублённый поиск по нику с вытягиванием аватаров, имён, локаций", github: "https://github.com/soxoj/maigret", preview: ["","red","","","green",""] },
-            { name: "SocialBox", desc: "Брутфорс соцсетей через Termux", github: "https://github.com/samsesh/SocialBox-Termux", preview: ["green","","red","","","red"] },
-            { name: "Tailspin", desc: "Интерактивный просмотрщик и фильтрация логов", github: "https://github.com/bensadeh/tailspin", preview: ["","green","","red","",""] },
-            { name: "GHunt", desc: "Вытягивание инфы из Google-аккаунта по email или ID", github: "https://github.com/mxrch/GHunt", preview: ["red","","","green","","red"] },
-            { name: "Holehe", desc: "Проверка email на регистрацию в 120+ сервисах", github: "https://github.com/megadose/holehe", preview: ["","red","green","","",""] },
-            { name: "theHarvester", desc: "Сбор email, субдоменов, IP по домену", github: "https://github.com/laramies/theHarvester", preview: ["green","","","red","green",""] },
-            { name: "SpiderFoot", desc: "Автоматический сбор инфы из 200+ источников", github: "https://github.com/smicallef/spiderfoot", preview: ["","green","red","","","green"] },
-            { name: "Recon-ng", desc: "Фреймворк для веб-разведки", github: "https://github.com/lanmaster53/recon-ng", preview: ["red","","green","","red",""] },
-            { name: "Shodan CLI", desc: "Поисковик по всему интернету (камеры, роутеры, сервера)", github: "https://github.com/achillean/shodan-python", preview: ["","red","","green","","red"] },
-            { name: "Censys CLI", desc: "Аналог Shodan с упором на SSL-сертификаты", github: "https://github.com/censys/censys-python", preview: ["green","","","red","","green"] },
-            { name: "ExifTool", desc: "Чистка и анализ метаданных из фото и документов", github: "https://github.com/exiftool/exiftool", preview: ["","green","","","red",""] },
-            { name: "MAT2", desc: "Удаление метаданных из файлов", github: "https://github.com/jvoisin/mat2", preview: ["red","","green","","",""] },
-            { name: "OnionShare", desc: "Безопасная передача файлов через Tor", github: "https://github.com/onionshare/onionshare", preview: ["","red","","green","","red"] },
-            { name: "VeraCrypt", desc: "Шифрование дисков со скрытыми разделами", github: "https://github.com/veracrypt/VeraCrypt", preview: ["green","red","","","green",""] },
-            { name: "dnscrypt-proxy", desc: "Шифрование DNS-запросов", github: "https://github.com/DNSCrypt/dnscrypt-proxy", preview: ["","","red","green","",""] },
-            { name: "macchanger", desc: "Смена MAC-адреса сетевой карты", github: "https://github.com/alobbs/macchanger", preview: ["red","green","","","","red"] },
-            { name: "Intel Owl", desc: "Автоматизация threat intelligence", github: "https://github.com/intelowlproject/IntelOwl", preview: ["","red","","green","red",""] },
-            { name: "Photon", desc: "Краулер для извлечения данных с сайтов", github: "https://github.com/s0md3v/Photon", preview: ["green","","red","","","green"] },
-            { name: "Subfinder", desc: "Поиск субдоменов через пассивные источники", github: "https://github.com/projectdiscovery/subfinder", preview: ["","green","","red","",""] },
-            { name: "Amass", desc: "Глубокий поиск субдоменов и анализ DNS", github: "https://github.com/owasp-amass/amass", preview: ["red","","green","","red","green"] },
-            { name: "Metagoofil", desc: "Извлечение метаданных из публичных документов", github: "https://github.com/laramies/metagoofil", preview: ["","red","","","green",""] },
-            { name: "FOCA", desc: "Поиск и анализ метаданных в документах", github: "https://github.com/ElevenPaths/FOCA", preview: ["green","","","red","","green"] },
-            { name: "TinEye CLI", desc: "Обратный поиск по изображениям", github: "https://github.com/TinEye/tineye_client", preview: ["","green","red","","",""] },
-            { name: "LittleBrother", desc: "Мониторинг цифрового следа", github: "https://github.com/lulz3xploit/LittleBrother", preview: ["red","","","green","","red"] }
-        ];
-
-        const grid = document.getElementById('software-grid');
-        software.forEach(s => {
-            const card = document.createElement('div');
-            card.className = 'software-card';
-            
-            let previewHTML = '<div class="software-preview"><div class="terminal-lines">';
-            s.preview.forEach(cls => {
-                previewHTML += `<div class="terminal-line ${cls}"></div>`;
-            });
-            previewHTML += '</div></div>';
-            
-            card.innerHTML = previewHTML + `
-                <div class="software-info">
-                    <h3>${s.name}</h3>
-                    <p class="desc">${s.desc}</p>
-                    <a href="${s.github}" class="github-link" target="_blank">GitHub →</a>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
