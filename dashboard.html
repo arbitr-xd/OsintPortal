@@ -3,54 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSINT PORTAL | Панель</title>
+    <title>Arbitr OSINT | Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="particles"></canvas>
+    <canvas id="matrix-bg"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
     <div class="grid-bg"></div>
-
-    <div class="content-container">
-        <div class="content-header">
-            <h1>OSINT<span class="accent">PORTAL</span></h1>
-            <button id="logout-btn" class="logout-btn">Выйти</button>
-        </div>
-
-        <p class="dash-welcome">Добро пожаловать, <span id="user-name"></span></p>
-
-        <div class="nav-cards">
-            <a href="anonymity.html" class="nav-card">
-                <div class="card-icon">🛡️</div>
-                <div class="card-number">01</div>
-                <h3>Анонимность</h3>
-                <p>Полный гайд по анонимности в сети</p>
-            </a>
-            <a href="osint.html" class="nav-card">
-                <div class="card-icon">🔍</div>
-                <div class="card-number">02</div>
-                <h3>OSINT</h3>
-                <p>Теория, методология, 47 видов</p>
-            </a>
-            <a href="software.html" class="nav-card">
-                <div class="card-icon">💻</div>
-                <div class="card-number">03</div>
-                <h3>Софты</h3>
-                <p>25 инструментов с описанием</p>
-            </a>
-            <a href="tips.html" class="nav-card">
-                <div class="card-icon">💬</div>
-                <div class="card-number">04</div>
-                <h3>Советы Арбитра</h3>
-                <p>20 правил цифровой безопасности</p>
-            </a>
-        </div>
-
-        <div class="private-block">
-            <p>🔒 Закрытый приват автора:</p>
-            <a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank">https://t.me/+yAisTVbDXLI1NWM6</a>
-        </div>
+    <div class="boot-sequence" id="boot-sequence">
+        <div class="glitch-text" id="glitch-text">Arbitr</div>
+        <div class="expand-line" id="expand-line"></div>
+        <div class="welcome-panel" id="welcome-panel"><span id="welcome-text"></span></div>
     </div>
-
+    <div class="main-interface" id="main-interface">
+        <div class="hud-top">
+            <div class="hud-time" id="hud-time">00:00:00</div>
+            <div class="hud-status"><span class="hud-dot"></span> CONNECTION: ACTIVE</div>
+        </div>
+        <div class="hud-container">
+            <div class="hud-left">
+                <div class="folder-panel">
+                    <div class="folder-header">// DIRECTORIES</div>
+                    <a href="anonymity.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">anonymity</span><span class="folder-arrow">→</span></a>
+                    <a href="osint.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">osint</span><span class="folder-arrow">→</span></a>
+                    <a href="geoint.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">geoint</span><span class="folder-arrow">→</span></a>
+                    <a href="termux.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">termux & python</span><span class="folder-arrow">→</span></a>
+                    <a href="software.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">software</span><span class="folder-arrow">→</span></a>
+                    <a href="tips.html" class="folder-item"><span class="folder-icon">📁</span><span class="folder-name">tips</span><span class="folder-arrow">→</span></a>
+                    <a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank" class="folder-item private-folder"><span class="folder-icon">🔒</span><span class="folder-name">private</span><span class="folder-arrow">→</span></a>
+                </div>
+            </div>
+            <div class="hud-center">
+                <div class="globe-container">
+                    <div class="globe" id="globe">
+                        <div class="globe-mask"></div>
+                        <div class="packet" style="top:10%;left:80%;animation-delay:0s;"></div>
+                        <div class="packet" style="top:30%;left:70%;animation-delay:0.5s;"></div>
+                        <div class="packet" style="top:50%;left:60%;animation-delay:1s;"></div>
+                        <div class="packet" style="top:20%;left:90%;animation-delay:1.5s;"></div>
+                        <div class="packet" style="top:60%;left:85%;animation-delay:2s;"></div>
+                        <div class="packet" style="top:40%;left:75%;animation-delay:2.5s;"></div>
+                        <div class="packet" style="top:70%;left:65%;animation-delay:0.7s;"></div>
+                        <div class="packet" style="top:15%;left:55%;animation-delay:1.2s;"></div>
+                    </div>
+                    <div class="globe-ring"></div>
+                </div>
+                <div class="net-stats">
+                    <div class="net-stat"><span class="net-label">DL</span><span class="net-value" id="dl-speed">12.4</span><span class="net-unit">MB/s</span></div>
+                    <div class="net-stat"><span class="net-label">UL</span><span class="net-value" id="ul-speed">3.8</span><span class="net-unit">MB/s</span></div>
+                    <div class="net-stat"><span class="net-label">PING</span><span class="net-value" id="ping-value">23</span><span class="net-unit">ms</span></div>
+                </div>
+            </div>
+            <div class="hud-right">
+                <div class="info-panel">
+                    <div class="info-header">// SYS_INFO</div>
+                    <div class="info-row"><span>USER:</span><span id="info-user"></span></div>
+                    <div class="info-row"><span>IP:</span><span id="info-ip">***.***.***.***</span></div>
+                    <div class="info-row"><span>UPTIME:</span><span id="info-uptime">00:00:00</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="private-bar"><a href="https://t.me/+yAisTVbDXLI1NWM6" target="_blank">PRIVATE CHANNEL</a></div>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="script.js"></script>
